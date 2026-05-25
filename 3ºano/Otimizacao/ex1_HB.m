@@ -16,7 +16,7 @@ beta=0.9;
 %% gráfico das curvas de nível de F
 % criar grelha de pontos
 [w1,w2] = meshgrid(-5:0.01:10, -5:0.01:5);
-vals_F = w1.^2 + c*w2.^2;
+vals_F = (w1.^2 + 20*w2.^2)/2;
 
 % contornos
 figure

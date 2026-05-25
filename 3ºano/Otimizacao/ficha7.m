@@ -1,0 +1,36 @@
+syms w1 w2 w3 y1;
+
+F = w1^4*w2^2 + w1^2*w3^4 + 0.5*w1^2 + w1*w2 + w3;
+c1 = w1 + w2 + w3 - 1;
+
+% Lagrangiana
+L = F - y1c1;
+
+% Verificar se o ponto é admissível w = (1,0,0)
+c1ad = subs(c1, [w1 w2 w3], [1 0 0]);
+
+% Regularidade
+gradC1 = gradient(c1, [w1 w2 w3]);
+
+% Condições de 1ª ordem (gradiente de L em ordem a w)
+gradL_w = gradient(L, [w1 w2 w3]);
+
+% Substituir o ponto
+xd = subs(gradL_w, [w1 w2 w3], [1 0 0])
+
+% Resolver apenas para y1
+ys1 = solve(xd == [0 0 0], y1)
+
+% Hessiana de L em ordem a w
+hessiLw = hessian(L, [w1 w2 w3])
+
+% Substituir o ponto e o multiplicador
+hessLw_opt = subs(hessiLw, ...
+    [w1 w2 w3 y1], ...
+    [1 0 0 ys1]);
+
+% Espaço nulo (direções admissíveis)
+z = null(gradC1')
+
+% Condição de 2ª ordem
+z' hessLw_opt * z

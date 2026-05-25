@@ -1,35 +1,24 @@
-syms w1 w2 w3 y1;
+syms w1 w2 w3 y1
 
-F = w1^2 - 2w1+w2^2-w3^2+4w3;
-c1 = w1-w2+2w3-2;
+F = w1^2 - 2*w1 + w2^2 - w3^2 + 4*w3;
+c1 = w1 - w2 + 2*w3 - 2;
 
-%Defeinir teorema de Lagrange
-L = F-y1*c1;
+L = F - y1*c1;
 
-%Verificar se o ponto é admissivel w = (2.5,-1.5,-1)
-c1ad = subs(c1,[w1 w2 w3],[2.5 -1.5 -1]);
+gradL = gradient(L, [w1 w2 w3 y1]);
 
-%verificar se w é regular, como neste caso so tem uma restricao
-gradC1 = gradient(c1 , [w1 w2 w3]);
+sol = solve(gradL == 0, [w1 w2 w3 y1]);
 
-%verificar as condiçóes de optimalidade
+w_opt = [sol.w1 sol.w2 sol.w3];
+y_opt = sol.y1;
 
-%calcular tringulo invertido de w de L
-% ou (acho)
-%calcular a matriz hessiana de L em ordem a w
-gradl = gradient(L, [w1 w2 w3 y1]);
+hessLw = hessian(L, [w1 w2 w3]);
 
-vec = [0,0,0,0];
-[ws1 ws2 ws3 ys1] = solve(gradl == vec);
+hessLw_opt = subs(hessLw, [w1 w2 w3 y1], [w_opt y_opt]);
 
+gradC1 = gradient(c1, [w1 w2 w3]);
+gradC1_opt = subs(gradC1, [w1 w2 w3], w_opt);
 
-%Calular a matriz hessiana de L em w ordem a w
-hessiLw = hessian(L,[w1 w2 w3]);
+Z = null(gradC1_opt');
 
- %espacicio nucleos dos gradientes das restições em w*
- z = null(gradC1')
-
- % 2 and
-%2 condi
-hessLw_opt= subs(hessLw,[w1 w2 w3 l1], [w_opt(1) w_opt(2) w_opt(3) 3])
-Z' * hessLw * Z
+Z' * hessLw_opt * Z
