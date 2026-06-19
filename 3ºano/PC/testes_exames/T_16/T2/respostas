@@ -1,0 +1,31 @@
+1.
+ Deadlock é quando uam thread está á espera que outra libere um recurso, mas a outra tabmém está á espera que a outra libere um recuso.
+Um cenario possivel seria por exemplo nas tranferencias de bancos. A conta X é de A e a conta Y é de B.
+A que mandar para Y por isso adquire a conta X e fica á espera da conta Y.
+B que tabmém quer mandar para A adquire a conta Y e fica á espera da conta A.
+Ficando assim os dois parados eternmanemten
+
+
+
+2.
+
+spurious wakeup é quando uma thread acorda de um wait(), sem que alguem a tenha dado um sinal tipo notify. Uma das consequencias é que a thread pode procegguir sem que a condição seja verdadeira.
+Um problema que seria trivial é por exdemplo nas barreiras simples onde se poderia usar if em vez de while. A sulução então é dentro de um while usar o wait();
+
+
+
+
+3.
+Não é comum, porque pode causar problemas. Porque alguma thread pode ter feito alterações na variavel que a thread está a ler atualmente. Fazendo com que a thread leia valores "desatualizados" 
+
+
+
+
+
+
+
+
+
+
+
+

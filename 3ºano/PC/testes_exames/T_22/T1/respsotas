@@ -1,0 +1,29 @@
+1.
+
+
+Deadlock acontece quando uma tread está á espera que outra thread termine, mas a outra thread está á espera que a outra termine, fazendo com que as duas fiquem á espera e não saiam do sitio.
+Um cenario possivel é por exmeplo no nos bancos em transferencias opostas.
+A adquire o lock da conta X e espera o lock da conta Y e B adquire o lock da conta Y e espera o lock da conta X.
+A maneira mais facil é ordenar os locks
+
+
+
+2.
+
+Em monitores classicos, quando uma thread faz notify(), passa imediatamentete o lock á thread que estava em wait(). E assim a condição que a fez acordar continua versadeira.
+
+Em monitores modernos apenas acorda a thread mas nao passa o loc, a thread têm de readquirir o lock e nessa intervalo outra thread pode mudar o estado
+
+Em java temos de usar while em vez de if para reavaliar a condição apos acordar e reniciar o etado dentro de um bloco syncronized
+
+
+
+3.
+O selective receive do erlang é muito importante uma vez que este permite que um processo escolha, dentro de varias mensagens aquela que quer processar primeiro, ignorando as outras até receber a mensagfen,m que deseja.
+Isso é bom para evitar deadlocks ao evitar mensagens que nao podem ser tratadas no momento.
+
+
+
+
+
+

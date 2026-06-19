@@ -1,0 +1,20 @@
+
+
+1.
+
+Excljusão mutua grarante que apenas uma thread de cada vez acede a um recurso partilhado. Um exmeplo é num contador partiljdado em que sem sincronização o resultado é imprevisivel
+
+Ordem de execução coornda a sequencia pela qual as threads executam determinadas ações, obrigando certas as esperar que outras atinjam um certo ponto.
+
+Exemplo: uma barreira, em que N threads têm de esperar até que todas terminem uma fase antes de prosseguir.
+
+2.
+
+Ter mais que uma varivel de condição é muito util pois permite que diferentes threasds esperem por predicados diferentes e sejam acordadas seletivamente, em vez de serem todas acordadadas.
+
+Não equivale a ter valrios monitores porque cada monitror têm o seu prorprio lock e coordenar condiçẽso que depende de um estado partiklhado exige multiplos locks o que pode causar deadlock
+
+
+
+
+

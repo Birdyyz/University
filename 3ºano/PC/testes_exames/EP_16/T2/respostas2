@@ -1,0 +1,20 @@
+
+1.
+
+
+Explisão mutua garante que só uma thread de cada vez acede a um determinado recurso partilhado. Por exmeplo varias thread a incrementar um contador ao mesmo tempo, sem explusão muta algumas atulualizações perdem-se
+
+
+Ordem de exeução garante que as threads executam acçoes numa determinada sequencia, eseprando umas pelas outras.
+Numa barreira por exemplo em que N threds esperam que todas terminem uma fase antes de progredir.
+
+
+2.
+Ter mais do que uma varivael de condição num monitor é muito util porque desta forma é possivel acordar uma therad seletiavamente, isto é duas threds podem estar á espera de um rescurso, mas se esse recuso for liberado, basta apenas acordar a thread que queira usar esse recurso em vez de acordar todas
+
+Náo é o mesmo que usarvarios monitores porque cada monitor têm o seu prorpio lock e se o recurso partilhado estiver espalhado por varios monitores, cada thread iria ter que adquirir varios locks o que pode facilmente causar deadlock
+
+
+
+
+

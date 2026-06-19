@@ -1,0 +1,23 @@
+1.
+
+Em java abstração é uma classe com metodos sincronized. As threads partilham o objeto dos metodos e usam wait e notify para se coordenarem. A explusão mutua é garantida pelos locks dos objetos
+
+Em erlang a abstração é um processo servidor que troca de mensagens com os clientes. O servidor processa uma mensagem de cada vez garantido unicidade
+
+
+de.
+
+
+
+2.
+
+
+Não é o mesmo porque quando uma variavel têm final, é garantido que uma thread que obtenha o objeto vai ver o valor correto.
+Se tirarmos essa grantia desaparece pois uma thread ao ler pode ver o valor obtido por omissao e não o valor atribuido no construtor.
+
+
+
+
+
+
+

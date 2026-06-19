@@ -1,0 +1,24 @@
+
+1.
+
+
+O problema da exclusão mutua é duas threads podem querer aceder ambas a um recuso partilhado.
+Um exemplo é varias threasds a incrementar um contador partilhado
+
+O problema de ordem de execução é porque pode acontecer deadlock que é duas threads estão á espera uma da outra o que causa com que fiquem á espera etermanemente. Por exemplo nas transações do Banco A quer adquire a conta X e fica á espera da conta Y. B tbm quer mandar a A e adquire a conta Y e fica á espera da conta X.
+
+
+
+2.
+
+Ter mais do que uma varivael de condição permite que direntes threads esperem por difrentes precidados e sejam acordaddas seletivamente.
+
+Não +e a mesma coisa que varios monitores porque cada monitor têm o seu proprio lock e coordenar varias condições que depemdem do mesmo estado iiria exigir multiplos locks o que pode causar deadlock.
+
+
+
+
+
+
+
+

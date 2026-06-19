@@ -1,0 +1,35 @@
+
+1.
+
+Deadlock é quanto uma thread está á espera que a outra libere um recurso, mas a outra thread está á espera que a outra também libere um recurso.
+Ficando assim as duas paradas. Um cenario possivel é por exemplo nas transações iversas dos bancos.
+
+Pessoa A quer mandar direnho para a a conta Y, então adquire o lock da conta X(dela) e fica á espera do lock da conta Y. B quer mandar para a conta X, por isso adquiere o lock da conta Y e fique á espera do lock da conta X.
+Assim as duas pessoas ficam á espera eternamente
+
+
+
+
+2.
+
+Monitores classicos, quando uma thread faz notinty ela acorda outra e passa o lock, fazendo com quea condição que a fez esperar ainda continue verdadeira.
+
+Enquanto que em monitores modernos, quando uma thread faz notity, ela não passa o lock, por isso é necessario fazer com que o predicado da condição seja novamente avalido.
+
+Isto commplica, porque outra thread já pode ter readquirido o lock e ter mudado o predicado, fazendo com que outra tenha que esperar mais.
+
+
+Emjava quando a ultima thread da barreira faz notityall() as outras acordam, mas nao recebem o lock imediatamente.
+Enquantoque esperam pelo lock a ultima thread pode reniciar o estado e quando as threads vao ver o estado vem a zero e voltam a dormir.
+Uma forma de resolver a situação é criando uma variavel geração fazendo com que cada thread guarde a sua geração e saem da espera quando a geração mudar.
+
+
+
+3.
+
+
+Selective receve é muito importante em erlang porque faz com que dentro de muitas mensagens o processo escolha a mensagem que quer processar, ignorando outras mensagens e deixando-as para ser processadas mais tarde.
+Esta propriedade é muito boa, porque permite que se evite deadlocks.
+
+
+

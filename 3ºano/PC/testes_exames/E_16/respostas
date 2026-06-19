@@ -1,0 +1,19 @@
+1.
+
+
+Em java usamos classes com metodos syncronized e variaveis de estado partilhadas. As threads esperam com waits() e são acordadas com notify. A explusão mutua é garantida pelo lock do objeto.
+
+EM realg temos um processo servidor que mantem o estado e processa as mensagens de cada vez. Os clientes enviam pedidos e esperam respontas com receive.
+
+
+
+
+2.
+N ENTENDI: 
+
+A afirmação é falsa.
+A keyword final num campo garante visibilidade após a construção do objeto (safe publication). Sem final, outra thread pode ver o valor por omissão (ex.: 0, null) em vez do valor atribuído no construtor, devido a reordenações e caches.
+
+
+
+

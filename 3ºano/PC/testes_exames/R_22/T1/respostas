@@ -1,0 +1,34 @@
+1.
+
+Starvatino acontece quando uma theread nunca consegue aceder a um determinado recurso apesar de estar elegivel para ele, uma vez que existem outras thereads que estao a ser favorecidas.
+Um exemplo seria por exemplo seria o probelma de leitores-escritores onde se tivermos sempre um leitor ativo os escirores nunca iriam entrar.
+
+
+2.
+
+acquire(n) decrementa atomicamente o semaforo em  n unidades se valor autla >= n, se não a thread bloqueia
+
+release(n) incrementa o semaforo em n unidades e acorda todas as threads bloqueadas
+
+acquire equivale a wait e relase equivale a signal.
+
+
+
+3.
+
+
+O wait() deve estar num ciclo que retesta o predicado porque a thread pode acordar em sinal e o ciclo faz com que ela volte a dormir.
+
+E pode acontecer com que outra thread mude a condição antes da thread acordada readquiririr o lock. O ciclo reavalia o predicado apos a aquisição do lock.
+
+
+
+
+
+
+
+
+
+
+
+

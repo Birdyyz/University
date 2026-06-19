@@ -1,0 +1,38 @@
+1.
+
+
+
+Starvation acontece quando uma thread não consegue aceder a um determoinado recurso fica constantemente parada devido a outras threasds estarem constantemente favorecidas.
+Um cenario possivel é por exemplo num cenario de escrita- leitores com prioridade aos leitores, e maneira de evitar este cenario é forçando a alternancia .
+
+
+
+
+2.
+
+A utilidade de ter mais do que uma variavel de condição é ultil porque varias trheads podem estar á espera de condições diferentes sejam acordadas seletivamente na condição especifica
+
+Não é equivalente ao facto de usar varios monitores porque cada monitor têm o seu prorpio lock. E para coordenar comdições que partilham o mesmo estado seriam necessarios varios locks o que poderia fazer com que acontecesse deadlock.
+
+3.
+Em Java as abstrações basemam-se em monitores (objetos partiljados com metodos syncronized, etc..). A exclusão mutua é garantida pelo lock do objeto.
+
+Em Erlang as abtrações usam processos e mensagens. Um provesso sservidor mantem o estado e processa as mensagens enviando uma resposta quando der e fazendo os clientes esperear.
+
+
+
+
+
+
+
+
+
+3.
+
+
+
+
+
+
+
+

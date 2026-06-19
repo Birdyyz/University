@@ -1,0 +1,35 @@
+1.
+Deadlock é quando duas ou mais threads estao permanentemente bloqueadas á espera que a outra libere um recuso.
+Um exemplo é nas transações inversas dos bancos. A adrquire a conta X e fica á espera da conta Y. A conta Y também quer mandar para a conta X e pega no Y e fica á espera do X.
+Assim ficam os dois á espera eternamente
+
+
+
+
+2.
+spurious wakeup, é quando uma thread acorda sem alguém lhe tenha signalizado para acordar. Esse facto obriga a progrmaar o wait() sempre dentro de um cilco while. A implmentaçao de uma baarreira res reutilizabvel seria simplmesmente if (counter < N) wait() eliminando a necessidade do cliclo while e da variavel epoca.
+
+
+
+
+
+
+3.
+
+Sem locks, uma thread pode não ver o que a outra escreveu e se a leitura envolver mais do que uma varivael, sem locks pode-se apanhar um estado incosistente.
+
+
+
+
+
+
+
+
+
+
+
+3.
+
+
+
+

@@ -1,0 +1,43 @@
+
+1.
+
+Um dos problemas que pode suigir é por exemplo quando varias threads estão a usar um mesmo contador. 
+Quando uma thread increvmentar o contador, se
+a outra thread estiver ao mesmo tempo incrementar o contador, irá ser perdido uma das atualzações.
+Uma forma de resolver o prolbema é usnado m bloco sincroided ou lock, o que fará com que apenas uma thread execute uma secção cirtia, garantindo assim operações atomicas
+
+
+
+2.
+
+Suspirios wakeuop é quando uma thread acorda mesmoo sem ter recibdo m sinal oara acordar. Uma consequencia é que essa thread que acordou, poderia proceggir mesmo sem a condição que esperava ser verdadeira.
+Uma solução é colocar a espera dentro de u cilo while reavalidadendo assim a condição.
+
+Sem spurious wakeup, uma barreira simples podia usar if em vez de while.
+Com spurious wakeup, o while é obrigatório.
+
+Se a barreira for reutilizável, é ainda preciso uma variável de geração (epoch) para evitar que threads da ronda anterior prossigam indevidamente."
+
+3.
+Não porque essa construção aceira qualquer mensagem que o processo tenha na caixa de correio mpor mais que não seja  amenagem esperada.
+Deve se colcoar um padraão especidfico que identifique a resposta esperada
+
+    {resposta, Valor} -> Valor
+
+
+
+3.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

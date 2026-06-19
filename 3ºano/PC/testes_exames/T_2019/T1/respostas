@@ -1,0 +1,36 @@
+1.
+
+O fenomeno de starvation é quando uma thread não consegue aceder a um determinado recurso apesar de estar elegivel para este, porque outras estão a ser constantemente favorecidas.
+Um cenario possivel é por exemplo no problema de escritores-leitores onde existe sempre pelo menos uma thread a ler e os escritores nunca entram.
+Uma solução possivel é
+
+
+2.
+Ter mais do que uma variavel de condição permite que threads esperem por difrentes predicados e que sejam acordadas seletivamente 
+Não é equivalente a ter varios motitores porque cada monitor têm o seu lock e para coordenar condições que dependem do mesmo estado partilhado exigiria adquirir multiplos lock o que poderia causar deadlocks ou inconsistencia
+
+
+3.
+
+Em java as threads partilham objetos e usam monitores para garantir exclusão mutua e coordenação.
+Em erlang não á estado partilhado. A coordenação é feita atraves da troca de mensagem . Em erlang existe um processo servidor que mantem o estado e responde as mensagens dos clientes garantindo atomicidade pelo processamente sequencial das mensagens.
+
+
+
+3.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

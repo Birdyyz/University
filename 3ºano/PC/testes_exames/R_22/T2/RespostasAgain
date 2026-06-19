@@ -1,0 +1,30 @@
+1.
+
+
+Starvation acontece quando uma thread nunca obtem um recurso apesar de estar elevivel para ele, porque outras threasd estão favorecidas.
+
+Um cenrario possivel é por exemplo os leitores-escritores, em que caso exista um leitor sempre a ler o escritor nunca vai entrar.
+
+
+
+2.
+
+
+acrire decrementa o semaforo em n unidades, dede que o valor atual seja >= n , se não a thread bloqueia
+
+o realsese incrementa o semanaforo em n e acorda as threads bloquedas.
+
+As operações clássicas (wait/signal, ou P/V) são equivalentes a acquire(1) e release(1). A generalização permite decrementar ou incrementar várias unidades de uma só vez, sendo útil quando se pretende reservar ou libertar múltiplos recursos atomicamente.
+
+
+
+
+
+3.
+
+Deve ser efetuado dentro de um ciclo while porque a thread pode ser acordada sem que alguem a tenha dito para acordar e o while obriga a voltar a dormr.
+E tabmém porque quando a thread acorda ela têm que readquirir o lock, e durente esse tempo outra thread pode mudar o valor da contição e por isso o while é neccessario para a reavaliar
+
+
+
+
